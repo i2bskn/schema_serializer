@@ -3,8 +3,10 @@ require "active_support/core_ext"
 
 require "schema_serializer/definition"
 require "schema_serializer/schema"
+require "schema_serializer/serializable"
 require "schema_serializer/errors"
 require "schema_serializer/version"
+require "schema_serializer/railtie" if defined?(Rails)
 
 class SchemaSerializer
   attr_reader :object
@@ -15,6 +17,7 @@ class SchemaSerializer
     end
 
     def definition=(define)
+      define = SchemaSerializer::Definition.new(define) unless define.is_a?(SchemaSerializer::Definition)
       @definition = define
     end
   end
