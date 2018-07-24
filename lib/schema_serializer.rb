@@ -1,19 +1,21 @@
 require "active_support"
 require "active_support/core_ext"
 
+require "schema_serializer/definition"
 require "schema_serializer/schema"
+require "schema_serializer/errors"
 require "schema_serializer/version"
 
 class SchemaSerializer
   attr_reader :object
 
   class << self
-    def schemas
-      @schemas
+    def definition
+      @definition
     end
 
-    def schemas=(hash)
-      @schemas = hash
+    def definition=(define)
+      @definition = define
     end
   end
 
@@ -26,7 +28,11 @@ class SchemaSerializer
   end
 
   def schema
-    self.class.schemas[object.class.to_s] || (raise "schema not found")
+    self.class.definition.find(schema_name)
+  end
+
+  def schema_name
+    object.class.to_s
   end
 
   private
