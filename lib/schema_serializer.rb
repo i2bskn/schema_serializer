@@ -22,7 +22,7 @@ class SchemaSerializer
     end
   end
 
-  def initialize(object)
+  def initialize(object, options = {})
     @object = object
   end
 
@@ -31,11 +31,13 @@ class SchemaSerializer
   end
 
   def schema
-    self.class.definition.find(schema_name)
+    self.class.definition.schema(schema_name)
   end
 
   def schema_name
-    object.class.to_s
+    return self.class.name.sub("Serializer", "") if self.class < SchemaSerializer
+
+    object.class.name
   end
 
   private
@@ -43,11 +45,7 @@ class SchemaSerializer
     def method_missing(name, *args, &block)
       super unless object.respond_to?(name)
 
-      define_singleton_method(name) do |*a, &b|
-        object.public_send(name)
-      end
-
-      send(name, *args, &block)
+      object.public_send(name, *args, &block)
     end
 
     def respond_to_missing?(name, include_private = false)

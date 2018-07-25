@@ -8,7 +8,7 @@ class SchemaSerializer
       }
     end
 
-    def find(name)
+    def schema(name)
       schemas[name] || (raise SchemaNotFound, name)
     end
   end

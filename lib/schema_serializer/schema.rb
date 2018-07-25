@@ -27,9 +27,13 @@ class SchemaSerializer
         object.to_f
       when "string"
         object.to_s
+      when "boolean"
+        !!object
       when "array"
         object.map { |item| items.serialize(item) }
       else
+        not_enough_columns = required - properties.keys
+        raise RequiredNotDefined, not_enough_columns.join(", ") unless not_enough_columns.empty?
         properties.each_with_object({}) { |(column, schema), obj|
           obj[column] = schema.serialize(object.public_send(column))
         }
