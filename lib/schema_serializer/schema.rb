@@ -46,7 +46,7 @@ class SchemaSerializer
         return object[column] || object[column.to_sym] if object.is_a?(Hash)
 
         value = object.public_send(column)
-        return value unless object.defined_enums.has_key?(column)
+        return value if !object.respond_to?(:defined_enums) || !object.defined_enums.has_key?(column)
 
         object.defined_enums[column][value]
       end
