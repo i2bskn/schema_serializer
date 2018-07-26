@@ -35,9 +35,20 @@ class SchemaSerializer
         not_enough_columns = required - properties.keys
         raise RequiredNotDefined, not_enough_columns.join(", ") unless not_enough_columns.empty?
         properties.each_with_object({}) { |(column, schema), obj|
-          obj[column] = schema.serialize(object.public_send(column))
+          obj[column] = schema.serialize(get_value(object, column))
         }
       end
     end
+
+    private
+
+      def get_value(object, column)
+        return object[column] || object[column.to_sym] if object.is_a?(Hash)
+
+        value = object.public_send(column)
+        return value unless object.defined_enums.has_key?(column)
+
+        object.defined_enums[column][value]
+      end
   end
 end
