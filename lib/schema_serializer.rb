@@ -26,7 +26,7 @@ class SchemaSerializer
     @object = object
   end
 
-  def as_json
+  def as_json(options = nil)
     schema.serialize(self)
   end
 
