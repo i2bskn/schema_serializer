@@ -1,0 +1,5 @@
+Description:
+    Create custom serializer.
+
+Example:
+    rails generate schema_serializer:serializer User
