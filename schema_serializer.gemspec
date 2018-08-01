@@ -1,5 +1,4 @@
-
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "schema_serializer/version"
 
@@ -9,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["i2bskn"]
   spec.email         = ["i2bskn@gmail.com"]
 
-  spec.summary       = %q{SchemaSerializer is provide serialization from schema definition to JSON.}
-  spec.description   = %q{SchemaSerializer is provide serialization from schema definition to JSON.}
+  spec.summary       = "SchemaSerializer is provide serialization from schema definition to JSON."
+  spec.description   = "SchemaSerializer is provide serialization from schema definition to JSON."
   spec.homepage      = "https://github.com/i2bskn/schema_serializer"
   spec.license       = "MIT"
 
@@ -23,11 +22,12 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "activesupport"
 
-  spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "openapi3_parser"
   spec.add_development_dependency "activerecord"
+  spec.add_development_dependency "bundler", "~> 1.16"
+  spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "openapi3_parser"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rubocop"
   spec.add_development_dependency "sqlite3"
 end

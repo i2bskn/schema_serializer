@@ -12,9 +12,7 @@ class SchemaSerializer
   attr_reader :object
 
   class << self
-    def definition
-      @definition
-    end
+    attr_reader :definition
 
     def definition=(define)
       define = SchemaSerializer::Definition.new(define) unless define.is_a?(SchemaSerializer::Definition)
@@ -22,11 +20,11 @@ class SchemaSerializer
     end
   end
 
-  def initialize(object, options = {})
+  def initialize(object, _options = {})
     @object = object
   end
 
-  def as_json(options = nil)
+  def as_json(_options = nil)
     schema.serialize(self)
   end
 
@@ -48,7 +46,7 @@ class SchemaSerializer
       object.public_send(name, *args, &block)
     end
 
-    def respond_to_missing?(name, include_private = false)
+    def respond_to_missing?(name, _include_private = false)
       object.respond_to?(name)
     end
 end

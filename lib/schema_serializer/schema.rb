@@ -4,15 +4,15 @@ class SchemaSerializer
 
     def initialize(hash = {})
       @type     = hash["type"]
-      @nullable = !!hash["nullable"]
+      @nullable = !hash["nullable"].nil?
 
       case type
       when "array"
         @items = self.class.new(hash.fetch("items"))
       when "object", nil
         @required = hash["required"] || []
-        @properties = hash.fetch("properties").each_with_object({}) { |(column, _hash), obj|
-          obj[column] = self.class.new(_hash)
+        @properties = hash.fetch("properties").each_with_object({}) { |(column, property), obj|
+          obj[column] = self.class.new(property)
         }
       end
     end
@@ -28,7 +28,7 @@ class SchemaSerializer
       when "string"
         object.to_s
       when "boolean"
-        !!object
+        !object.nil?
       when "array"
         object.map { |item| items.serialize(item) }
       else
@@ -46,7 +46,7 @@ class SchemaSerializer
         return object[column] || object[column.to_sym] if object.is_a?(Hash)
 
         value = object.public_send(column)
-        return value if !object.respond_to?(:defined_enums) || !object.defined_enums.has_key?(column)
+        return value if !object.respond_to?(:defined_enums) || !object.defined_enums.key?(column)
 
         object.defined_enums[column][value]
       end
