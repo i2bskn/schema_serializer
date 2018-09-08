@@ -29,7 +29,7 @@ class SchemaSerializer
   end
 
   def schema
-    self.class.definition.schema(schema_name)
+    ::SchemaSerializer.definition.schema(schema_name)
   end
 
   def schema_name
