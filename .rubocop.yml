@@ -1,24 +1,176 @@
+AllCops:
+  Exclude:
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
+
+Layout/ExtraSpacing:
+  Exclude:
+    - "db/migrate/*.rb"
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: rails
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Layout/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*_spec.rb"
+
+Lint/InheritException:
+  EnforcedStyle: standard_error
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+
+CyclomaticComplexity:
+  Max: 10
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - "db/migrate/*.rb"
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Security/YAMLLoad:
+  Enabled: false
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/CollectionMethods:
+  PreferredMethods:
+    detect: "detect"
+    find: "detect"
+    inject: "inject"
+    reduce: "inject"
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashSyntax:
+  Exclude:
+    - "**/*.rake"
+    - "Rakefile"
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - "bin/setup"
+    - "bin/update"
+
+Style/NumericLiterals:
+  MinDigits: 7
+  Strict: true
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/OrAssignment:
+  Enabled: false
+
+Style/PreferredHashMethods:
+  EnforcedStyle: verbose
+
+Style/RedundantReturn:
+  AllowMultipleReturnValues: true
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 
-Style/Documentation:
-  Enabled: false
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
 
-Style/BlockDelimiters:
-  Enabled: false
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
 
-Style/MultilineBlockChain:
-  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
 
-Style/ClassAndModuleChildren:
-  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
 
-Layout/IndentationConsistency:
-  Enabled: true
-  EnforcedStyle: rails
-
-Metrics/LineLength:
-  Max: 120
+Style/YodaCondition:
+  EnforcedStyle: equality_operators_only
