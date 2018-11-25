@@ -1,3 +1,5 @@
 class SchemaSerializer
-  class SchemaNotFound < StandardError; end
+  class BaseError          < StandardError; end
+  class SchemaNotFound     < BaseError; end
+  class RequiredNotDefined < BaseError; end
 end
