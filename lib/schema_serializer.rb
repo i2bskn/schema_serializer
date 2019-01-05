@@ -15,7 +15,7 @@ class SchemaSerializer
     attr_reader :definition
 
     def definition=(define)
-      @definition = SchemaSerializer::Definition.new(define) unless define.is_a?(SchemaSerializer::Definition)
+      @definition = define.is_a?(SchemaSerializer::Definition) ? define : SchemaSerializer::Definition.new(define)
     end
   end
 
