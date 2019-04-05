@@ -12,32 +12,58 @@ gem "schema_serializer"
 
 And then execute:
 
+```bash
+$ bundle install
 ```
-$ bundle
+
+Create config file(Only Rails) with:
+
+```bash
+$ bundle exec rails generate schema_serializer:install
 ```
+
+The following file will be created.
+
+- `config/initializers/schema_serializer.rb`
+- `doc/schema.yml`
 
 ## Usage
 
-```
-SchemaSerializer.definition = {
-  "User" => {
-    "required" => ["id", "name"],
-    "properties" => {
-      "id" => {
-        "type" => "integer",
-      },
-      "name" => {
-        "type" => "string",
-      },
-      "age" => {
-        "type" => "number",
-        "nullable" => true,
-      },
-    }
-  }
-}
+### Create a serializer template with Rails Generator
 
-User.take.as_json
+Create a serializer template in `app/serializers/user_serializer.rb`.
+
+```bash
+$ bundle exec rails g schema_serializer:serializer User
+```
+
+### Serializer Definitions
+
+Serializer Definitions are describe in the `doc/schema.yml`.
+
+```yaml
+User:
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: integer
+    name:
+      type: string
+    age:
+      type: integer
+      nullable: true
+```
+
+### Serialization
+
+```ruby
+user = User.take
+SchemaSerializer.new(user).as_json.to_json
+
+# Only ActiveRecord Object
+user.serializer.as_json.to_json
 ```
 
 ## Development
