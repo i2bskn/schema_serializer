@@ -10,7 +10,7 @@ class SchemaSerializer::Definition
       private
 
         def schemas_to_hash(schemas)
-          schemas.each_with_object({}) {|(name, node), obj|
+          schemas.each_with_object({}) { |(name, node), obj|
             obj[name.to_s] = node_to_hash(node)
           }
         end
@@ -22,7 +22,7 @@ class SchemaSerializer::Definition
             obj["items"] = node_to_hash(node.items)
           when "object", nil
             obj["required"] = node.required&.node_data || []
-            obj["properties"] = node.properties.each_with_object({}) {|(name, property), properties|
+            obj["properties"] = node.properties.each_with_object({}) { |(name, property), properties|
               properties[name.to_s] = node_to_hash(property)
             }
           end
