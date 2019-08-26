@@ -28,7 +28,7 @@ class SchemaSerializer
       when "string"
         object.to_s
       when "boolean"
-        !object.nil?
+        !!object
       when "array"
         object.map { |item| items.serialize(item) }
       else
