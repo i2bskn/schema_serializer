@@ -20,14 +20,17 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) {|f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "activesupport"
+  spec.add_dependency "activesupport", ">= 5.2.0"
+  spec.add_dependency "yaml_ext", "0.1.0"
 
-  spec.add_development_dependency "activerecord"
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "openapi3_parser"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "activerecord", ">= 5.2.0"
+  spec.add_development_dependency "bundler", "~> 2.0.2"
+  spec.add_development_dependency "pry", "~> 0.12.2"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "rspec", "~> 3.8.0"
+  spec.add_development_dependency "rubocop", "~> 0.74.0"
+  spec.add_development_dependency "sqlite3", "~> 1.4.0"
+
+  # optional
+  spec.add_development_dependency "openapi3_parser", "~> 0.5.2"
 end

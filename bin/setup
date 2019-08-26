@@ -3,4 +3,4 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
-bundle install --path .bundle
+bundle install --path .bundle -j 4

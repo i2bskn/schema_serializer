@@ -14,6 +14,10 @@ class SchemaSerializer
   class << self
     attr_reader :definition
 
+    def load_definition(path)
+      self.definition = YamlExt.load(path)
+    end
+
     def definition=(define)
       @definition = define.is_a?(SchemaSerializer::Definition) ? define : SchemaSerializer::Definition.new(define)
     end

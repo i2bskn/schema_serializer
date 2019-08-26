@@ -4,4 +4,4 @@
 #   Openapi3Parser.load_file(Rails.root.join("doc/schema.yml"))
 # )
 
-SchemaSerializer.definition = YAML.load_file(Rails.root.join("doc/schema.yml"))
+SchemaSerializer.load_definition(Rails.root.join("doc/schema.yml"))
