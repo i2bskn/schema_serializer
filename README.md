@@ -1,5 +1,7 @@
 # SchemaSerializer
 
+[![Build Status](https://travis-ci.org/i2bskn/schema_serializer.svg?branch=master)](https://travis-ci.org/i2bskn/schema_serializer)
+
 SchemaSerializer is provide serialization from schema definition to JSON.
 
 ## Installation
