@@ -1,5 +1,6 @@
 require "active_support"
 require "active_support/core_ext"
+require "yaml_ext"
 
 require "schema_serializer/definition"
 require "schema_serializer/schema"
