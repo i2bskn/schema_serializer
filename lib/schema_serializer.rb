@@ -17,7 +17,7 @@ class SchemaSerializer
 
     def load_definition(path)
       doc = YamlExt.load(path)
-      if doc.key?("openapi") && Gem::Version.new(doc.fetch("openapi")) >= Gem::Version.new("3.0.0")
+      if doc.has_key?("openapi") && Gem::Version.new(doc.fetch("openapi")) >= Gem::Version.new("3.0.0")
         doc = doc.fetch("components").fetch("schemas")
       end
 
