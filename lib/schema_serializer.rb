@@ -16,7 +16,12 @@ class SchemaSerializer
     attr_reader :definition
 
     def load_definition(path)
-      self.definition = YamlExt.load(path)
+      doc = YamlExt.load(path)
+      if doc.key?("openapi") && Gem::Version.new(doc.fetch("openapi")) >= Gem::Version.new("3.0.0")
+        doc = doc.fetch("components").fetch("schemas")
+      end
+
+      self.definition = doc
     end
 
     def definition=(define)
