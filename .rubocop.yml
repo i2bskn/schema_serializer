@@ -38,7 +38,7 @@ Metrics/BlockLength:
     - "Gemfile"
     - "*.gemspec"
 
-CyclomaticComplexity:
+Metrics/CyclomaticComplexity:
   Max: 10
 
 Metrics/LineLength:
