@@ -10,7 +10,7 @@ require "schema_serializer/version"
 require "schema_serializer/railtie" if defined?(Rails)
 
 class SchemaSerializer
-  attr_reader :object
+  attr_reader :object, :options
 
   class << self
     attr_reader :definition
@@ -29,8 +29,9 @@ class SchemaSerializer
     end
   end
 
-  def initialize(object, _options = {})
+  def initialize(object, options = {})
     @object = object
+    @options = options
   end
 
   def as_json(_options = nil)
