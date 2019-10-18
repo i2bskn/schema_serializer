@@ -9,11 +9,11 @@ class SchemaSerializer
 
       case type
       when "array"
-        @items = self.class.new(hash.fetch("items"))
+        @items = self.class.new(@key, hash.fetch("items"))
       when "object", nil
         @required = hash["required"] || []
         @properties = hash.fetch("properties").each_with_object({}) { |(column, property), obj|
-          obj[column] = self.class.new(property)
+          obj[column] = self.class.new(column, property)
         }
       end
     end
