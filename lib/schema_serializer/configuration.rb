@@ -4,7 +4,7 @@ class SchemaSerializer
       :raise_on_null,
     ].freeze
 
-    attr_accessor *VALID_OPTIONS
+    attr_accessor(*VALID_OPTIONS)
 
     def initialize(options = {})
       reset

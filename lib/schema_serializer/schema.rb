@@ -34,8 +34,19 @@ class SchemaSerializer
       when "boolean"
         !!object
       when "array"
-        object.map { |item| items.serialize(item) }
+        serialize_array(object)
       else
+        serialize_object(object)
+      end
+    end
+
+    private
+
+      def serialize_array(object)
+        object.map { |item| items.serialize(item) }
+      end
+
+      def serialize_object(object)
         not_enough_columns = required - properties.keys
         raise RequiredNotDefined, not_enough_columns.join(", ") unless not_enough_columns.empty?
 
@@ -43,9 +54,6 @@ class SchemaSerializer
           obj[column] = schema.serialize(get_value(object, column))
         }
       end
-    end
-
-    private
 
       def get_value(object, column)
         return object[column] || object[column.to_sym] if object.is_a?(Hash)
