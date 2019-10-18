@@ -1,8 +1,9 @@
 class SchemaSerializer
   class Schema
-    attr_reader :type, :nullable, :items, :required, :properties
+    attr_reader :key, :type, :nullable, :items, :required, :properties
 
-    def initialize(hash = {})
+    def initialize(key, hash = {})
+      @key      = key
       @type     = hash["type"]
       @nullable = !hash["nullable"].nil?
 
@@ -18,7 +19,10 @@ class SchemaSerializer
     end
 
     def serialize(object)
-      return nil if nullable && object.nil?
+      if object.nil?
+        return nil if nullable
+        raise NullValue, "#{key} is not allowed to be null" if SchemaSerializer.config.raise_on_null
+      end
 
       case type
       when "integer"

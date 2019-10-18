@@ -2,6 +2,7 @@ require "active_support"
 require "active_support/core_ext"
 require "yaml_ext"
 
+require "schema_serializer/configuration"
 require "schema_serializer/definition"
 require "schema_serializer/schema"
 require "schema_serializer/serializable"
@@ -26,6 +27,10 @@ class SchemaSerializer
 
     def definition=(define)
       @definition = define.is_a?(SchemaSerializer::Definition) ? define : SchemaSerializer::Definition.new(define)
+    end
+
+    def config
+      @config ||= Configuration.new
     end
   end
 
