@@ -8,6 +8,9 @@ module SchemaSerializer::Generators
 
     def create_example_schema
       copy_file "schema.yml", "doc/schema.yml"
+      copy_file "components/index.yml", "doc/components/index.yml"
+      copy_file "components/schemas/index.yml", "doc/components/schemas/index.yml"
+      copy_file "components/schemas/Pet.yml", "doc/components/schemas/Pet.yml"
     end
   end
 end
