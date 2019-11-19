@@ -3,6 +3,7 @@ class SchemaSerializer
     initializer "schema_serializer" do
       ActiveSupport.on_load(:active_record) do
         ::ActiveRecord::Base.send(:include, SchemaSerializer::Serializable)
+        ::ActiveRecord::Relation.send(:include, SchemaSerializer::Serializable)
       end
     end
   end
