@@ -1,2 +1,4 @@
-Pet:
-  $ref: ./Pet.yml
+User:
+  $ref: ./User.yml
+Users:
+  $ref: ./Users.yml

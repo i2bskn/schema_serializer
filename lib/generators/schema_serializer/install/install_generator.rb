@@ -10,7 +10,8 @@ module SchemaSerializer::Generators
       copy_file "schema.yml", "doc/schema.yml"
       copy_file "components/index.yml", "doc/components/index.yml"
       copy_file "components/schemas/index.yml", "doc/components/schemas/index.yml"
-      copy_file "components/schemas/Pet.yml", "doc/components/schemas/Pet.yml"
+      copy_file "components/schemas/User.yml", "doc/components/schemas/User.yml"
+      copy_file "components/schemas/Users.yml", "doc/components/schemas/Users.yml"
     end
   end
 end

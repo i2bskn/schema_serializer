@@ -7,5 +7,6 @@ properties:
     type: integer
   name:
     type: string
-  tag:
-    type: string
+  age:
+    nullable: true
+    type: integer
