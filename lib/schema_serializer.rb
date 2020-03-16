@@ -22,7 +22,14 @@ class SchemaSerializer
         doc = doc.fetch("components").fetch("schemas")
       end
 
+      @document_path = path
       self.definition = doc
+    end
+
+    def reload!
+      raise ReloadError, "Load config using .load_definition" if @document_path.nil?
+
+      load_definition(@document_path)
     end
 
     def definition=(define)
