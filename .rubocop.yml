@@ -4,19 +4,20 @@ AllCops:
     - "node_modules/**/*"
     - "vendor/**/*"
 
-Layout/IndentFirstArrayElement:
-  EnforcedStyle: consistent
-
-Layout/IndentFirstHashElement:
-  EnforcedStyle: consistent
-
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
+
+Layout/LineLength:
+  Max: 120
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
 Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*_spec.rb"
+
+Lint/ConstantDefinitionInBlock:
   Exclude:
     - "spec/**/*_spec.rb"
 
@@ -41,14 +42,8 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Max: 10
 
-Metrics/LineLength:
-  Max: 120
-
 Metrics/MethodLength:
   Max: 20
-
-Naming/UncommunicativeMethodParamName:
-  Enabled: false
 
 Security/YAMLLoad:
   Enabled: false
@@ -63,9 +58,6 @@ Style/AsciiComments:
   Enabled: false
 
 Style/BlockDelimiters:
-  Enabled: false
-
-Style/BracesAroundHashParameters:
   Enabled: false
 
 Style/ClassAndModuleChildren:

@@ -69,6 +69,7 @@ class SchemaSerializer
     end
 
     def respond_to_missing?(name, _include_private = false)
+      super
       object.respond_to?(name)
     end
 end
