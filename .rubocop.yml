@@ -4,12 +4,17 @@ AllCops:
     - "node_modules/**/*"
     - "vendor/**/*"
 
+# Private methods indent.
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
+# Warning: 120 characters
+# Error:   160 characters
+# Make the library more restrictive.
 Layout/LineLength:
   Max: 120
 
+# Multi-line indentation with receiver.
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
@@ -17,6 +22,7 @@ Lint/AmbiguousBlockAssociation:
   Exclude:
     - "spec/**/*_spec.rb"
 
+# May define constants within the block in spec.
 Lint/ConstantDefinitionInBlock:
   Exclude:
     - "spec/**/*_spec.rb"
@@ -88,6 +94,7 @@ Style/EmptyMethod:
 Style/FormatString:
   EnforcedStyle: percent
 
+# Do not use frozen_string_literal comment.
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -102,6 +109,7 @@ Style/MixinUsage:
   Exclude:
     - "bin/setup"
 
+# Use _ when 7 digits or more.
 Style/NumericLiterals:
   MinDigits: 7
   Strict: true
@@ -115,35 +123,42 @@ Style/OrAssignment:
 Style/PercentLiteralDelimiters:
   Enabled: false
 
+# `has_xxx?` is more readable.
 Style/PreferredHashMethods:
   EnforcedStyle: verbose
 
+# Do not use unnecessary returns. (Allow to return multiple values.)
 Style/RedundantReturn:
   AllowMultipleReturnValues: true
 
-Style/RedundantSelf:
-  Enabled: false
-
+# Do not specify error class when rescuing StandardError.
 Style/RescueStandardError:
   EnforcedStyle: implicit
 
+# String literals use double quotes.
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# String literal inside the string interpolation use double quotes too.
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 
+# Percent(`%i(a b)`) and brackets(`[:a, :b]`) are acceptable.
 Style/SymbolArray:
   Enabled: false
 
+# Put a trailing comma in argument list.
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
+# Put a trailing comma in Array literal.
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
+# Put a trailing comma in Hash literal.
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
+# Percent(`%w(a b)`) and brackets(`["a", "b"]`) are acceptable.
 Style/WordArray:
   Enabled: false
