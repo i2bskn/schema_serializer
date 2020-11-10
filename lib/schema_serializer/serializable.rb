@@ -13,6 +13,8 @@ class SchemaSerializer
       end
 
       def serializer_base_class_name
+        return self.class.name unless defined?(ActiveRecord)
+
         self.class < ActiveRecord::Relation ? self.model.name.pluralize : self.class.name
       end
   end
