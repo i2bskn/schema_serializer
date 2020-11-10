@@ -1,7 +1,7 @@
 # SchemaSerializer
 
 [![Gem Version](https://badge.fury.io/rb/schema_serializer.svg)](https://badge.fury.io/rb/schema_serializer)
-[![Build Status](https://travis-ci.org/i2bskn/schema_serializer.svg?branch=master)](https://travis-ci.org/i2bskn/schema_serializer)
+![Ruby](https://github.com/i2bskn/schema_serializer/workflows/Ruby/badge.svg?branch=master)
 
 SchemaSerializer is provide serialization from schema definition to JSON.
 
