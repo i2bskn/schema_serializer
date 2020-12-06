@@ -27,7 +27,7 @@ class SchemaSerializer
         end
 
         def cached_serializers
-          @serializers ||= {}
+          @cached_serializers ||= {}
         end
     end
   end
