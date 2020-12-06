@@ -15,6 +15,11 @@ class SchemaSerializer
         SchemaSerializer
       end
 
+      def refresh!
+        @non_existent_serializers = []
+        @serializers = {}
+      end
+
       private
 
         def non_existent_serializers

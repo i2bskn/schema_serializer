@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "schema_serializer"
+# require "pry" # for debug
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

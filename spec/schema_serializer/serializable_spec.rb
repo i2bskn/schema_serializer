@@ -10,6 +10,7 @@ RSpec.describe SchemaSerializer::Serializable do
   end
 
   after do
+    SchemaSerializer::Constantizer.refresh!
     Object.send(:remove_const, :Item)
     Object.send(:remove_const, :ExampleSerializer)
   end
