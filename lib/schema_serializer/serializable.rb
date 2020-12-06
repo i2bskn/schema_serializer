@@ -9,7 +9,7 @@ class SchemaSerializer
     private
 
       def serializer_class
-        "#{serializer_base_class_name}Serializer".safe_constantize
+        SchemaSerializer::Constantizer.find("#{serializer_base_class_name}Serializer")
       end
 
       def serializer_base_class_name
