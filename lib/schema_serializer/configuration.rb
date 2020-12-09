@@ -12,7 +12,7 @@ class SchemaSerializer
     end
 
     def merge(options)
-      options.each_keys { |key| send("#{key}=", options[key]) }
+      options.each_key { |key| send("#{key}=", options[key]) }
       self
     end
 
