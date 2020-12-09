@@ -3,7 +3,7 @@ class SchemaSerializer
     class << self
       def find(name)
         return cached_serializers.fetch(name) if cached_serializers.has_key?(name)
-        return SchemaSerializer               if non_existent_serializers.include?(name)
+        return nil                            if non_existent_serializers.include?(name)
 
         klass = name.safe_constantize
         if klass.present?
@@ -12,7 +12,7 @@ class SchemaSerializer
         end
 
         non_existent_serializers << name
-        SchemaSerializer
+        nil
       end
 
       def refresh!
