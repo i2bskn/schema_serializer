@@ -5,6 +5,10 @@ AllCops:
     - "node_modules/**/*"
     - "vendor/**/*"
 
+Layout/EmptyLineBetweenDefs:
+  Exclude:
+    - "lib/schema_serializer/errors.rb"
+
 # Private methods indent.
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
